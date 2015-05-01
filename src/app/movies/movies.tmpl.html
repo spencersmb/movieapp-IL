@@ -1,0 +1,36 @@
+<h4>Notes Index</h4>
+
+<div class="row">
+  <div class="controls">
+    <label for="releaseDate">Sort By</label>
+    <select name="releaseDate" id="releaseDate" ng-model="ctrl.descending" ng-options="opt as opt.label for opt in ctrl.options"></select>
+  </div>
+  <!--<div class="col-sm-2" ng-repeat="movieDetails in ctrl.movies | orderBy: '-releaseDate': descending.value ">-->
+  <div class="col-sm-2" ng-repeat="movie in ctrl.movies | orderBy: ctrl.descending.value ">
+
+    <a ui-sref="movieDetails({movieTitle:movie.title, movieId:movie.rootId})"><img src="{{movie.preferredImage.uri}}" alt=""/></a>
+    <p>{{movie.title}}</p>
+    <p>{{movie.qualityRating.value}}</p>
+    <p>{{movie.releaseDate}}</p>
+
+    <p ng-repeat="time in movie.showtimes">{{time.dateTime | date:'h:mm a'}}</p>
+
+    <p ng-repeat="rating in movie.ratings">rated: {{rating.code}}</p>
+
+    <p ng-repeat="genre in movie.genres">{{genre}}</p>
+
+    <p>{{movie.runTime}}</p>
+
+  </div>
+
+
+</div>
+<hr/>
+<br/>
+<a class="btn btn-default" ui-sref="create">Create Note</a>
+
+<a class="btn btn-default" ui-sref="users">Users</a>
+
+
+<!--<a ui-sref="notewrangler.movies.movieDetails">movies 1</a>-->
+

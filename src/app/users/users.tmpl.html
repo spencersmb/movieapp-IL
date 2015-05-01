@@ -1,0 +1,15 @@
+<h4>Users Index</h4>
+
+<div class="row">
+    <div class="col-sm-6" ng-repeat="user in ctrl.users">
+        <h2><a ui-sref="user({userName:user.name})">{{user.name}}</a></h2>
+
+        <p>{{user.email}}</p>
+    </div>
+</div>
+<hr/>
+<br/>
+<!--<a class="btn btn-default" ui-sref="create">Create Note</a>-->
+
+<!--<a ui-sref="notewrangler.movies.movieDetails">movies 1</a>-->
+
